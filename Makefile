@@ -12,9 +12,9 @@
 
 NAME = libft.a
 
-SRC = fait/*.c
+SRC = *.c ft_is/*.c ft_str/*.c ft_to/*.c memory/*.c 
 
-OBJ = *.o
+OBJ = *.o */*.o
 
 FLAG = -Wall -Wextra -Werror
 

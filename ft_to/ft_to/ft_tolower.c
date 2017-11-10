@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dtedgui <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 15:31:47 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/11/09 16:03:50 by yvillepo         ###   ########.fr       */
+/*   Created: 2015/11/23 15:38:15 by dtedgui           #+#    #+#             */
+/*   Updated: 2016/01/27 16:31:55 by dtedgui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <strign.h>
-#include <stdio.h>
 #include "libft.h"
 
-int		main(int av, char **av)
+char	*ft_tolower(char *str)
 {
-	if (ac < 2)
+	char	*lowered;
+	int		i;
+
+	lowered = ft_strnew(ft_strlen(str));
+	i = 0;
+	while (str[i])
 	{
-		printf("arg!! \n");
-		return (-1)
+		if (str[i] >= 65 && str[i] <= 90)
+			lowered[i] = str[i] + 32;
+		else
+			lowered[i] = str[i];
+		i++;
 	}
-	memcpy(
-	
+	return (lowered);
 }

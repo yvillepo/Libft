@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dtedgui <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 12:31:35 by dtedgui           #+#    #+#             */
-/*   Updated: 2015/12/01 11:47:31 by dtedgui          ###   ########.fr       */
+/*   Created: 2015/11/23 15:38:32 by dtedgui           #+#    #+#             */
+/*   Updated: 2016/01/27 16:33:44 by dtedgui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_toupper(char *str)
 {
-	unsigned char	*tmp;
+	char	*uppered;
+	int		i;
 
-	if (!dst || !src || dst == src || len == 0)
-		return (NULL);
-	tmp = (unsigned char*)malloc(sizeof(*tmp) * len);
-	ft_memcpy(tmp, src, len);
-	ft_memcpy(dst, tmp, len);
-	free(tmp);
-	return (dst);
+	uppered = ft_strnew(ft_strlen(str));
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] >= 97 && str[i] <= 122)
+			uppered[i] = str[i] - 32;
+		else
+			uppered[i] = str[i];
+		i++;
+	}
+	return (uppered);
 }
