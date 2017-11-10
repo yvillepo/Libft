@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dtedgui <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/23 15:38:32 by dtedgui           #+#    #+#             */
-/*   Updated: 2016/01/27 16:33:44 by dtedgui          ###   ########.fr       */
+/*   Created: 2017/11/10 18:02:04 by yvillepo          #+#    #+#             */
+/*   Updated: 2017/11/10 18:13:55 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-char	*ft_toupper(char *str)
+char	*ft_strnew(size_t size)
 {
-	char	*uppered;
-	int		i;
+	char	*str;
 
-	uppered = ft_strnew(ft_strlen(str));
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] >= 97 && str[i] <= 122)
-			uppered[i] = str[i] - 32;
-		else
-			uppered[i] = str[i];
-		i++;
-	}
-	return (uppered);
+	str = (char*)malloc(sizeof(*str)*size);
+	ft_bzero(str,size);
 }

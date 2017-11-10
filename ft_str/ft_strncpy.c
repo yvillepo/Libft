@@ -1,19 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/10 16:28:42 by yvillepo          #+#    #+#             */
+/*   Updated: 2017/11/10 16:32:58 by yvillepo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strncpy(char *dst, const char *src, size_t n)
 {
-	char	*dst_ptr;
+	char	*d;
 
-	if (!dst || !src)
-		return (NULL);
-	dst_ptr = dst;
+	d = dst;
 	while (*src && n > 0)
 	{
-		n--;
-		*dst_ptr++ = *src++;
+		--n;
+		*d++ = *src++;
 	}
-	*dst_ptr = 0;
 	while (n-- > 0)
-		*dst_ptr++ = 0;
+		*d++ = 0;
 	return (dst);
 }

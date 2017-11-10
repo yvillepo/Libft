@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 15:58:28 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/11/10 16:25:35 by yvillepo         ###   ########.fr       */
+/*   Created: 2017/11/10 18:15:33 by yvillepo          #+#    #+#             */
+/*   Updated: 2017/11/10 18:20:04 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_strdel(char **as)
 {
-	unsigned char	*d;
-	unsigned char	*s;
-
-	if (dst == src || len == 0)
-		return (dst);
-	d = (unsigned char*)dst;
-	s = (unsigned char*)src;
-	while (len--)
+	while (**as)
 	{
-		*d++ = *s++;
+		
+		*as++;
 	}
-	return (dst);
 }
