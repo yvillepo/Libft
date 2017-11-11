@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 18:02:04 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/11/10 18:13:55 by yvillepo         ###   ########.fr       */
+/*   Created: 2017/11/10 18:15:33 by yvillepo          #+#    #+#             */
+/*   Updated: 2017/11/11 14:22:27 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+void	ft_strdel(char **as)
 {
-	char	*str;
-
-	str = (char*)malloc(size);
-	ft_bzero(str,size);
+	if (as && *as)
+	{
+		free(*as);
+		*as = (NULL);
+	}
 }
