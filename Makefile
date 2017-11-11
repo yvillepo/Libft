@@ -12,19 +12,19 @@
 
 NAME = libft.a
 
-SRC = memory/ft_bzero.c memory/ft_memccpy.c memory/ft_memchr.c \
-	  memory/ft_memcmp.c memory/ft_memcpy.c memory/ft_memmove.c \
-	  memory/ft_memset.c \
-	  memory/ft_memalloc.c memory/ft_memdel.c\
-	  ft_is/ft_isalnum.c ft_is/ft_isalpha.c ft_is/ft_isascii.c \
-	  ft_is/ft_isdigit.c ft_is/ft_isprint.c \
-	  ft_str/ft_strcat.c ft_str/ft_strchr.c ft_str/ft_strcmp.c \
-	  ft_str/ft_strcpy.c ft_str/ft_strdup.c ft_str/ft_strlcat.c \
-	  ft_str/ft_strlen.c ft_str/ft_strncat.c ft_str/ft_strncmp.c \
-	  ft_str/ft_strncpy.c ft_str/ft_strnstr.c ft_str/ft_strrchr.c \
-	  ft_str/ft_strstr.c \
-	  ft_to/ft_tolower.c ft_to/ft_toupper.c \
-	  ft_atoi.c \
+SRC = libc/memory/ft_bzero.c libc/memory/ft_memccpy.c libc/memory/ft_memchr.c \
+	  libc/memory/ft_memcmp.c libc/memory/ft_memcpy.c libc/memory/ft_memmove.c \
+	  libc/memory/ft_memset.c \
+	  part2/ft_mem/ft_memalloc.c part2/ft_mem/ft_memdel.c \
+	  libc/ft_is/ft_isalnum.c libc/ft_is/ft_isalpha.c libc/ft_is/ft_isascii.c \
+	  libc/ft_is/ft_isdigit.c libc/ft_is/ft_isprint.c \
+	  libc/ft_str/ft_strcat.c libc/ft_str/ft_strchr.c libc/ft_str/ft_strcmp.c \
+	  libc/ft_str/ft_strcpy.c libc/ft_str/ft_strdup.c libc/ft_str/ft_strlcat.c \
+	  libc/ft_str/ft_strlen.c libc/ft_str/ft_strncat.c libc/ft_str/ft_strncmp.c \
+	  libc/ft_str/ft_strncpy.c libc/ft_str/ft_strnstr.c libc/ft_str/ft_strrchr.c \
+	  libc/ft_str/ft_strstr.c \
+	  libc/ft_to/ft_tolower.c libc/ft_to/ft_toupper.c \
+	  libc/ft_atoi.c \
 
 OBJ = *.o 
 
@@ -34,14 +34,16 @@ DIRI = .
 
 all : $(NAME)
 
-$(NAME): fclean
+$(NAME):
+	@mkdir -p OBJ
 	gcc $(FLAG) -c $(SRC) -I $(DIRI)
 	ar rc $(NAME) $(OBJ)
+	mv $(OBJ) OBJ
 
 clean:
-	rm -f $(OBJ)
+	rm -rf OBJ
 
 fclean: clean
-	rm -f $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
