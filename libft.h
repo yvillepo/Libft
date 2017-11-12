@@ -13,6 +13,13 @@
 #include <string.h>
 #include <stdlib.h>
 
+typedef struct	s_list
+{
+		void	*content;
+		size_t	content_size;
+		struct	*next;
+}				t_list;
+
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void 	ft_bzero(void *s, size_t n);
 void 	*ft_memcpy(void *dest, const void *src, size_t n);
@@ -69,3 +76,5 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_swap_c(char *c1, char *c2);
 char	*ft_rev(char *str);
 int		ft_abs(int n);
+t_list	*ft_lstnew(void const *content, size_t content_size);
+void	ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
