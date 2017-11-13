@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstadd_next.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/11 14:37:42 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/11/13 17:00:47 by yvillepo         ###   ########.fr       */
+/*   Created: 2017/11/12 20:16:28 by yvillepo          #+#    #+#             */
+/*   Updated: 2017/11/12 20:16:56 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+t_list	*ft_lstadd_next(t_list *lst, t_list *add)
 {
-	unsigned int		i;
-
-	i = 0;
-	if (!s)
-		return ;
-	while (*s)
-	{
-		f(i, s);
-		s++;
-		i++;
-	}
+	return (lst->next = add);
 }

@@ -6,7 +6,7 @@
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 20:01:41 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/11/11 22:17:43 by yvillepo         ###   ########.fr       */
+/*   Updated: 2017/11/12 20:11:11 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,41 +28,56 @@ static int	len(int n)
 	}
 	return (cmp + 1);
 }
-char	*ft_itoa(int n)
+
+static char	*itoa_negatif(int n)
 {
 	char	*str_nbr;
-	int		i;
+	char	*s;
 
-	i = 0;
-	if (n < 0) 
+	if (!(str_nbr = (char*)malloc(len(n))))
+		return (NULL);
+	s = str_nbr;
+	while (n)
 	{
-		if(!(str_nbr = (char*)malloc(len(n))))
-			return (NULL);
-		while (n)
-		{
-			str_nbr[i] = '0' - (n % 10);
-			n = n / 10;
-			i++;
-		}
-		str_nbr[i] = '-';
-		i++;
-	}	
-	else 
-	{
-		if(!(str_nbr = (char*)malloc(len(n))))
-			return (NULL);
-		if (n == 0)
-		{
-			*str_nbr = '0';
-			i++;
-		}
-		while (n)
-		{
-			str_nbr[i] = '0' + (n % 10);
-			n = n /10;
-			i++;
-		}
+		*str_nbr++ = '0' - (n % 10);
+		n = n / 10;
 	}
-	str_nbr[i] = '\0';
-	return(ft_rev(str_nbr));
+	*str_nbr++ = '-';
+	*str_nbr = 0;
+	return (s);
+}
+
+static char	*itoa_positif(int n)
+{
+	char	*str_nbr;
+	char	*s;
+
+	if (!(str_nbr = (char*)malloc(len(n))))
+		return (NULL);
+	s = str_nbr;
+	if (n == 0)
+	{
+		*str_nbr = '0';
+		str_nbr++;
+	}
+	while (n)
+	{
+		*str_nbr++ = '0' + (n % 10);
+		n = n / 10;
+	}
+	*str_nbr = 0;
+	return (s);
+}
+
+char		*ft_itoa(int n)
+{
+	char	*str_nbr;
+
+	if (n < 0)
+		str_nbr = itoa_negatif(n);
+	else
+		str_nbr = itoa_positif(n);
+	if (str_nbr)
+		return (ft_rev(str_nbr));
+	return (NULL);
 }

@@ -6,13 +6,13 @@
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 18:47:00 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/11/11 18:56:00 by yvillepo         ###   ########.fr       */
+/*   Updated: 2017/11/13 17:35:00 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-static char	*ft_strdup_split(char **src, char c)
+static char	*ft_strdup_split(const char **src, char c)
 {
 	char	*src1;
 	int		i;
@@ -38,27 +38,26 @@ static char	*ft_strdup_split(char **src, char c)
 	return (a);
 }
 
-int		nb_mots(char *str, char c)
+static int	nb_mots(const char *s, char c)
 {
-	int		m;
+	int cmp;
 
-	m = 1;
-	while (*str)
+	cmp = 0;
+	while (*s)
 	{
-		if (*str == c)
-			m++;
-		while (*str == c)
+		if (*s != c)
 		{
-			str++;
-			if (!*str)
-				return (m - 1);
+			cmp++;
+			while (*s != c && *s)
+				s++;
 		}
-		str++;
+		else
+			s++;
 	}
-	return (m);
+	return (cmp);
 }
 
-char	**ft_strsplit(char *str, char c)
+char		**ft_strsplit(const char *str, char c)
 {
 	char	**tab;
 	int		nb_m;

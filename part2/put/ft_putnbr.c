@@ -5,14 +5,54 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/11 20:12:15 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/11/11 21:03:53 by yvillepo         ###   ########.fr       */
+/*   Created: 2017/08/05 21:29:02 by yvillepo          #+#    #+#             */
+/*   Updated: 2017/11/12 21:26:23 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int nb)
+static void	affiche_nombre(char *nbr)
 {
-	ft_putstr(ft_itoa(nb));
+	int i;
+
+	i = 0;
+	while (nbr[i] != '\0')
+	{
+		i++;
+	}
+	while (i >= 0)
+	{
+		i--;
+		ft_putchar(nbr[i]);
+	}
+}
+
+void		ft_putnbr(int nb)
+{
+	char		nombre[20];
+	int			i;
+
+	i = 0;
+	if (nb < 0)
+	{
+		ft_putchar('-');
+	}
+	if (nb == 0)
+		ft_putchar('0');
+	while (nb != 0)
+	{
+		if (nb < 0)
+		{
+			nombre[i] = '0' - (nb % 10);
+		}
+		else
+		{
+			nombre[i] = '0' + (nb % 10);
+		}
+		nb = nb / 10;
+		i++;
+	}
+	nombre[i] = '\0';
+	affiche_nombre(nombre);
 }

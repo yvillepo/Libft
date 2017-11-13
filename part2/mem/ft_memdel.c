@@ -6,11 +6,10 @@
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 17:51:26 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/11/11 14:09:45 by yvillepo         ###   ########.fr       */
+/*   Updated: 2017/11/13 16:58:42 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 void	ft_memdel(void **ap)

@@ -6,31 +6,40 @@
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 17:08:32 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/11/11 14:01:43 by yvillepo         ###   ########.fr       */
+/*   Updated: 2017/11/13 17:33:49 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include "libft.h"
-/*
-static	int	Max_int(void)
-{
-	int		n;
-	int		res;
 
-	n = sizeof(int);
-	if (n == 4)
-		return (2147483647);
-	if (n == 2)
-		return(32767);
-	if (n == 8)
-		return (9223372036854775807);
+static int	calcul(const char *str, int sign)
+{
+	unsigned int	result;
+	unsigned int	digit;
+
+	result = 0;
+	while (*str)
+	{
+		digit = *str - '0';
+		str++;
+		if (digit > 9)
+			break ;
+		result = (result * 10) + digit;
+		if (result > 2147483647)
+		{
+			if (sign && result > 2147483648)
+				return (0);
+			else if (!sign)
+				return (-1);
+		}
+	}
+	return ((int)result);
 }
-*/
+
 int			ft_atoi(const char *str)
 {
-	unsigned int	digit;
-	int				result;
+	unsigned int	result;
 	int				sign;
 
 	result = 0;
@@ -43,14 +52,7 @@ int			ft_atoi(const char *str)
 		sign = *str == '-';
 		str++;
 	}
-	while (*str)
-	{
-		digit = *str - '0';
-		str++;
-		if (digit > 9)
-			break ;
-		result = (result * 10) + digit;
-	}
+	result = calcul(str, sign);
 	if (sign)
 		return (-result);
 	return (result);

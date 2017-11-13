@@ -6,7 +6,7 @@
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 20:10:38 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/11/11 21:12:47 by yvillepo         ###   ########.fr       */
+/*   Updated: 2017/11/13 14:34:35 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putstr(const char *str)
 {
+	if (!str)
+		return ;
 	while (*str)
 	{
 		ft_putchar(*str);

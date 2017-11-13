@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/11 14:37:42 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/11/13 17:00:47 by yvillepo         ###   ########.fr       */
+/*   Created: 2017/11/12 16:41:14 by yvillepo          #+#    #+#             */
+/*   Updated: 2017/11/12 20:19:41 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	unsigned int		i;
+	t_list *new;
 
-	i = 0;
-	if (!s)
-		return ;
-	while (*s)
+	if (!(new = (t_list*)malloc(sizeof(t_list))))
+		return (NULL);
+	if (!content)
 	{
-		f(i, s);
-		s++;
-		i++;
+		new->content = 0;
+		return (new);
 	}
+	if (!(new->content = malloc(content_size)))
+	{
+		new->content = 0;
+		return (new);
+	}
+	ft_memcpy(new->content, content, content_size);
+	new->content_size = content_size;
+	return (new);
 }

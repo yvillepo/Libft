@@ -6,7 +6,7 @@
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 20:29:53 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/11/11 20:52:44 by yvillepo         ###   ########.fr       */
+/*   Updated: 2017/11/12 20:12:57 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_rev(char *str)
 	while (*sb)
 		sb++;
 	sb--;
-	while(s < sb)
+	while (s < sb)
 	{
 		ft_swap_c(s, sb);
 		s++;

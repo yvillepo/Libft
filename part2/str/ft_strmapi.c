@@ -6,7 +6,7 @@
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 16:07:21 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/11/11 16:07:43 by yvillepo         ###   ########.fr       */
+/*   Updated: 2017/11/13 17:01:07 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	*n = 0;
 	return (new);
 }
-

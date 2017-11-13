@@ -6,7 +6,7 @@
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 18:57:46 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/11/11 20:01:23 by yvillepo         ###   ########.fr       */
+/*   Updated: 2017/11/12 18:39:51 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,18 @@ static int	ft_size(const char *s)
 	return (s1 - s + 1);
 }
 
-char	*ft_strtrim(char const *s)
+char		*ft_strtrim(char const *s)
 {
-	char		*str;
-	char 		*s1;
-	int 		size;
+	char	*str;
+	char	*s1;
+	int		size;
 
 	if (!s)
 		return (NULL);
 	while (*s == ' ' || *s == '\n' || *s == '\t')
 		s++;
-	if(!*s)
-		return("");
+	if (!*s)
+		return ("");
 	size = ft_size(s);
 	if (!(str = (char*)malloc(size + 1)))
 		return (NULL);
