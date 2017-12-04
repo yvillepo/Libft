@@ -6,7 +6,7 @@
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 17:52:38 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/12/04 20:12:15 by yvillepo         ###   ########.fr       */
+/*   Updated: 2017/12/04 21:31:35 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char			*lstr_dup_free(t_lstr **lstr)
 	len = str_len(*lstr);
 	if (len == 0)
 		return ("");
-	str = malloc(str_len(*lstr) + 1);
+	str = ft_strnew(str_len(*lstr));
 	*str = '\0';
 	while (*lstr)
 	{
