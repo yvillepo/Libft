@@ -6,7 +6,7 @@
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 14:39:51 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/11/11 15:24:57 by yvillepo         ###   ########.fr       */
+/*   Updated: 2017/11/14 16:51:17 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_striter(char *s, void (*f)(char *))
 {
-	if (!s)
+	if (!s || !f)
 		return ;
 	while (*s)
 	{

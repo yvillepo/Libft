@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 15:58:28 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/11/14 17:13:12 by yvillepo         ###   ########.fr       */
+/*   Created: 2017/11/23 16:16:52 by yvillepo          #+#    #+#             */
+/*   Updated: 2017/12/02 18:21:04 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+# define BUFF_SIZE 500
+# include <sys/types.h>
+# include <sys/uio.h>
+# include <unistd.h>
+
+typedef struct	s_fd
 {
-	unsigned char	*d;
-	unsigned char	*s;
-	size_t			i;
+	int			fd;
+	char		*str;
+	struct s_fd	*next;
+}				t_fd;
 
-	i = 0;
-	if (dst == src || len == 0)
-		return (dst);
-	d = (unsigned char *)dst;
-	s = (unsigned char *)src;
-	if (dst > src)
-	{
-		while (len > 0)
-		{
-			len--;
-			d[len] = s[len];
-		}
-		d[0] = s[0];
-	}
-	while (i < len)
-	{
-		d[i] = s[i];
-		i++;
-	}
-	return (dst);
-}
+int				get_next_line(const int fd, char **line);
+
+#endif

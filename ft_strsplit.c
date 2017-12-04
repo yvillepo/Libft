@@ -6,7 +6,7 @@
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 18:47:00 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/11/13 19:45:24 by yvillepo         ###   ########.fr       */
+/*   Updated: 2017/11/14 15:29:58 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ char		**ft_strsplit(const char *str, char c)
 	while (*str == c)
 		str++;
 	nb_m = nb_mots(str, c);
-	if(!(tab = (char**)malloc(sizeof(*tab) * nb_m + 1)))
+	if (!(tab = (char**)malloc(sizeof(*tab) * nb_m + 1)))
 		return (NULL);
 	i = 0;
 	while (i < nb_m)

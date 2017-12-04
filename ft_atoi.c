@@ -6,14 +6,14 @@
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 17:08:32 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/11/13 17:33:49 by yvillepo         ###   ########.fr       */
+/*   Updated: 2017/11/14 17:42:14 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include "libft.h"
 
-static int	calcul(const char *str, int sign)
+static int	calcul(const char *str)
 {
 	unsigned int	result;
 	unsigned int	digit;
@@ -26,13 +26,6 @@ static int	calcul(const char *str, int sign)
 		if (digit > 9)
 			break ;
 		result = (result * 10) + digit;
-		if (result > 2147483647)
-		{
-			if (sign && result > 2147483648)
-				return (0);
-			else if (!sign)
-				return (-1);
-		}
 	}
 	return ((int)result);
 }
@@ -52,7 +45,7 @@ int			ft_atoi(const char *str)
 		sign = *str == '-';
 		str++;
 	}
-	result = calcul(str, sign);
+	result = calcul(str);
 	if (sign)
 		return (-result);
 	return (result);

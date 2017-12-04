@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   lstr_addn.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 15:58:28 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/11/14 17:13:12 by yvillepo         ###   ########.fr       */
+/*   Created: 2017/12/02 18:53:29 by yvillepo          #+#    #+#             */
+/*   Updated: 2017/12/04 17:40:26 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+t_lstr		*lstr_new(char *str)
 {
-	unsigned char	*d;
-	unsigned char	*s;
-	size_t			i;
+	t_lstr	*lstr;
 
-	i = 0;
-	if (dst == src || len == 0)
-		return (dst);
-	d = (unsigned char *)dst;
-	s = (unsigned char *)src;
-	if (dst > src)
+	if (!(lstr = malloc(sizeof(*lstr))))
+		return (NULL);
+	lstr->str = str;
+	lstr->next = NULL;
+	return (lstr);
+}
+
+t_lstr		*lstr_addn(t_lstr *lstr, char *str)
+{
+	if (!lstr)
 	{
-		while (len > 0)
-		{
-			len--;
-			d[len] = s[len];
-		}
-		d[0] = s[0];
+		lstr = lstr_new(str);
+		return (lstr);
 	}
-	while (i < len)
-	{
-		d[i] = s[i];
-		i++;
-	}
-	return (dst);
+	lstr->next = lstr_new(str);
+	return (lstr->next);
 }

@@ -6,7 +6,7 @@
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 17:46:47 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/11/12 17:46:49 by yvillepo         ###   ########.fr       */
+/*   Updated: 2017/11/14 15:15:58 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 		return (0);
 	ptr1 = (unsigned char*)s1;
 	ptr2 = (unsigned char*)s2;
-	while (*ptr1 == *ptr2 && n-- > 0)
+	while (*ptr1 == *ptr2 && n-- > 1)
 	{
 		if (*ptr1 == 0)
 			return (0);

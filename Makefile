@@ -6,7 +6,7 @@
 #    By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 16:07:25 by yvillepo          #+#    #+#              #
-#    Updated: 2017/11/13 19:41:29 by yvillepo         ###   ########.fr        #
+#    Updated: 2017/12/04 20:19:39 by yvillepo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,35 +23,25 @@ SRC =ft_abs.c ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 	 ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlen.c ft_strmap.c \
 	 ft_strmapi.c ft_strncat.c ft_strncmp.c ft_strncpy.c ft_strnequ.c \
 	 ft_strnew.c ft_strnstr.c ft_strrchr.c ft_strsplit.c ft_strstr.c \
-	 ft_strsub.c ft_strtrim.c ft_swap_c.c ft_tolower.c ft_toupper.c
+	 ft_strsub.c ft_strtrim.c ft_swap_c.c ft_tolower.c ft_toupper.c \
+	 get_next_line.c error.c lstr_addn.c lstr_dup_free.c free_lstr.c
 
-OBJ = ft_abs.o ft_atoi.o ft_bzero.o ft_isalnum.o ft_isalpha.o ft_isascii.o \
-	  ft_isdigit.o ft_isprint.o ft_itoa.o ft_lstadd.o ft_lstadd_next.o \
-	  ft_lstdel.o ft_lstdelone.o ft_lstiter.o ft_lstmap.o ft_lstnew.o \
-	  ft_memalloc.o ft_memccpy.o ft_memchr.o ft_memcmp.o ft_memcpy.o \
-	  ft_memdel.o ft_memmove.o ft_memset.o ft_putchar.o ft_putchar_fd.o \
-	  ft_putendl.o ft_putendl_fd.o ft_putnbr.o ft_putnbr_fd.o ft_putstr.o \
-	  ft_putstr_fd.o ft_rev.o ft_strcat.o ft_strchr.o ft_strclr.o ft_strcmp.o\
-	  ft_strcpy.o ft_strdel.o ft_strdup.o ft_strequ.o ft_striter.o \
-	  ft_striteri.o ft_strjoin.o ft_strlcat.o ft_strlen.o ft_strmap.o \
-	  ft_strmapi.o ft_strncat.o ft_strncmp.o ft_strncpy.o ft_strnequ.o \
-	  ft_strnew.o ft_strnstr.o ft_strrchr.o ft_strsplit.o ft_strstr.o \
-	  ft_strsub.o ft_strtrim.o ft_swap_c.o ft_tolower.o ft_toupper.o
+OBJ =$(SRC:%.c=%.o) 
 
-FLAG = -Wall -Wextra -Werror
+FLAG = -W -Wall -Wextra -Werror
 
 DIRI = .
 
 all : $(NAME)
 
-$(NAME): 
-	gcc $(FLAG) -c $(SRC) -I $(DIRI)
-	ar rc $(NAME) $(OBJ)
+$(NAME): $(OBJ) $(SRC) 
+	@gcc $(FLAG) -c $(SRC) -I $(DIRI)
+	@ar rc $(NAME) $(OBJ)
 
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all

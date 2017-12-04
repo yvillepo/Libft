@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   free_lstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 15:58:28 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/11/14 17:13:12 by yvillepo         ###   ########.fr       */
+/*   Created: 2017/12/02 18:21:58 by yvillepo          #+#    #+#             */
+/*   Updated: 2017/12/04 17:39:48 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+t_lstr	*free_lstr_one(t_lstr **lstr)
 {
-	unsigned char	*d;
-	unsigned char	*s;
-	size_t			i;
+	t_lstr *next;
 
-	i = 0;
-	if (dst == src || len == 0)
-		return (dst);
-	d = (unsigned char *)dst;
-	s = (unsigned char *)src;
-	if (dst > src)
-	{
-		while (len > 0)
-		{
-			len--;
-			d[len] = s[len];
-		}
-		d[0] = s[0];
-	}
-	while (i < len)
-	{
-		d[i] = s[i];
-		i++;
-	}
-	return (dst);
+	if (!*lstr)
+		return (NULL);
+	next = (*lstr)->next;
+	if ((*lstr)->str)
+		free((*lstr)->str);
+	free(*lstr);
+	*lstr = NULL;
+	return (next);
+}
+
+void	free_lstr(t_lstr **lstr)
+{
+	if (!*lstr)
+		return ;
+	free_lstr(&((*lstr)->next));
+	free_lstr_one(lstr);
 }
