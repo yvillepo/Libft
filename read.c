@@ -6,7 +6,7 @@
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 20:28:51 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/12/04 21:16:49 by yvillepo         ###   ########.fr       */
+/*   Updated: 2017/12/04 21:20:27 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ char	*read_fd(int fd)
 	if (ret < 0)
 		exit_error("read file");
 	return (lstr_dup_free(&lstr));
-
 }
 
 char	*read_file(char *str)
