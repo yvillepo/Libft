@@ -6,7 +6,7 @@
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 14:56:24 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/12/04 20:17:09 by yvillepo         ###   ########.fr       */
+/*   Updated: 2017/12/04 20:50:10 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,7 @@ void				free_lstr(t_lstr **lstr);
 t_lstr				*lstr_addn(t_lstr *lstr, char *str);
 t_lstr				*lstr_new(char *str);
 char				*lstr_dup_free(t_lstr **lstr);
+char				*read_fd(int fd);
+char				*read_file(char *str);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 16:40:12 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/12/04 20:16:06 by yvillepo         ###   ########.fr       */
+/*   Updated: 2017/12/04 20:52:34 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void		free_struct_fd(t_fd **fd_str, int fd)
 	free(current);
 }
 
-static int		read_file(t_fd *fd_str)
+static int		read_file_gnl(t_fd *fd_str)
 {
 	char	buf[BUFF_SIZE + 1];
 	char	*str;
@@ -130,7 +130,7 @@ int				get_next_line(const int fd, char **line)
 	search_fd(fd, &l_fd, &fd_str);
 	if (fd < 0 || line == NULL || BUFF_SIZE < 1)
 		return (-1);
-	if (read_file(fd_str) == -1)
+	if (read_file_gnl(fd_str) == -1)
 		return (-1);
 	if ((ret = sub_first_line(&fd_str, line)) == 0)
 	{
