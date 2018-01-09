@@ -6,7 +6,7 @@
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 19:55:46 by yvillepo          #+#    #+#             */
-/*   Updated: 2018/01/09 20:21:25 by yvillepo         ###   ########.fr       */
+/*   Updated: 2018/01/09 21:00:29 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,14 @@ t_complex		mult_complex(t_complex *z1, t_complex *z2)
 double			mod2(t_complex *z1)
 {
 	return (z1->r * z1->r + z1->i * z1->i);
+}
+
+t_complex		*new_complex(double r, double i)
+{
+	t_complex	*z;
+
+	z = ft_malloc(sizeof(*z));
+	z->r = r;
+	z->i = i;
+	return (z);
 }
