@@ -6,7 +6,7 @@
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 14:56:24 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/12/19 07:55:01 by yvillepo         ###   ########.fr       */
+/*   Updated: 2018/01/09 20:22:07 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ typedef struct		s_lstr
 	char			*str;
 	struct s_lstr	*next;
 }					t_lstr;
+
+typedef struct		s_complex
+{
+	double			r;
+	double			i;
+}					t_complex;
 
 void				*ft_memset(void *b, int c, size_t len);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
@@ -105,5 +111,8 @@ int					ft_strcmpt(char *str, char c);
 double				ft_absd(double n);
 int					ft_max(int x1, int x2);
 int					ft_min(int x1, int x2);
+t_complex			add_complx(t_complex z1, t_complex z2);
+t_complex			mult_complx(t_complex z1, t_complex z2);
+double				mod2(t_complex *z1);
 
 #endif
