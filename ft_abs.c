@@ -6,7 +6,7 @@
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 21:24:22 by yvillepo          #+#    #+#             */
-/*   Updated: 2017/12/18 11:28:25 by yvillepo         ###   ########.fr       */
+/*   Updated: 2018/01/26 07:21:29 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,12 @@ int		ft_abs(int n)
 		return (-n);
 	else
 		return (n);
+}
+
+double	ft_abs_double(double x)
+{
+	if (x < 0)
+		return (-x);
+	else
+		return (x);
 }
