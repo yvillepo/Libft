@@ -6,7 +6,7 @@
 /*   By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 14:56:24 by yvillepo          #+#    #+#             */
-/*   Updated: 2018/01/26 07:21:19 by yvillepo         ###   ########.fr       */
+/*   Updated: 2018/03/01 00:25:48 by yvillepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,5 +120,6 @@ t_complex			*new_complex(double r, double i);
 double				mod2(t_complex *z1);
 void				ft_swap(int *x1, int *x2);
 double				ft_abs_double(double x);
+int					ft_atoi_base(const char *str, unsigned int base);
 
 #endif
