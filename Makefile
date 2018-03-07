@@ -6,7 +6,7 @@
 #    By: yvillepo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 16:07:25 by yvillepo          #+#    #+#              #
-#    Updated: 2018/03/01 00:26:19 by yvillepo         ###   ########.fr        #
+#    Updated: 2018/01/09 20:21:52 by yvillepo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SRC =ft_abs.c ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 	 ft_strnew.c ft_strnstr.c ft_strrchr.c ft_strsplit.c ft_strstr.c \
 	 ft_strsub.c ft_strtrim.c ft_swap_c.c ft_tolower.c ft_toupper.c \
 	 get_next_line.c error.c lstr_addn.c lstr_dup_free.c free_lstr.c\
-	 read.c ft_strcpt.c ft_absd.c ft_max.c complex.c ft_swap.c ft_atoi_base.c
+	 read.c ft_strcpt.c ft_absd.c ft_max.c complex.c ft_swap.c free_tab.c \
+	 ft_atoi_base.c ft_atof.c
 
 OBJ =$(SRC:%.c=%.o) 
 

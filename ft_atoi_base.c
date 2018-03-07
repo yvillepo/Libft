@@ -10,10 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
+#include "stdio.h"
 
-static int	calcul(const char *str)
+static unsigned int	calc_digit(const char *c)
+{
+	if (*c >= '0' && *c <= '9')
+		return (*c - '0');
+	if (*c >= 'a' && *c <= 'z')
+		return (*c - 'a' + 10);
+	if (*c >= 'A' && *c <= 'Z')
+		return (*c - 'A' + 10);
+	printf("pb : %s",c);
+	return (17);
+}
+
+static int	calcul(const char *str, int base)
 {
 	unsigned int	result;
 	unsigned int	digit;
@@ -21,16 +33,16 @@ static int	calcul(const char *str)
 	result = 0;
 	while (*str)
 	{
-		digit = *str - '0';
+		digit = calc_digit(str);
 		str++;
-		if (digit > 9)
+		if (digit > 16)
 			break ;
-		result = (result * 10) + digit;
+		result = (result * base) + digit;
 	}
 	return ((int)result);
 }
 
-int			ft_atoi(const char *str)
+int			ft_atoi_base(const char *str, int base)
 {
 	unsigned int	result;
 	int				sign;
@@ -45,7 +57,7 @@ int			ft_atoi(const char *str)
 		sign = *str == '-';
 		str++;
 	}
-	result = calcul(str);
+	result = calcul(str, base);
 	if (sign)
 		return (-result);
 	return (result);
