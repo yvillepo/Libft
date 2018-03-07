@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "stdio.h"
 
 static unsigned int	calc_digit(const char *c)
 {
@@ -21,7 +20,6 @@ static unsigned int	calc_digit(const char *c)
 		return (*c - 'a' + 10);
 	if (*c >= 'A' && *c <= 'Z')
 		return (*c - 'A' + 10);
-	printf("pb : %s",c);
 	return (17);
 }
 
